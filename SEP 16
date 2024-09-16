@@ -1,0 +1,67 @@
+LA#10
+class Vehicle():
+    def __init__(self,brand,model,fuel_types):
+        self.brand = brand
+        self.model = model
+        self.fuel_types = fuel_types
+        
+    def describeVehicle(self):
+        print(f'{self.brand},{self.model},{self.fuel_types}')
+        
+class Car():
+    pass
+    
+class Motorcycle():
+    pass
+
+bmw = Vehicle("BMW","XM SUV","Diesel")
+bmw.describeVehicle()
+
+LA#11
+class Phone():
+    def __init__(self,brand,model):
+        self.brand = brand
+        self.model = model
+    def describePhone(self):
+        print(f"Brand:{self.brand}, Model:{self.model}")
+
+class Android(Phone):
+    def __init__(self,brand,model):
+        Phone.__init__(self,brand,model)
+        
+tecno = Android("Tecno","Camon 16")
+tecno.describePhone()
+
+LA#12
+class Toy():
+    def __init__(self,name,price):
+        self.name = name
+        self.price = price
+    
+    def describeToy(self):
+        print(f'Name:{self.name}, Price:{self.price}')
+  
+class Car(Toy):
+    def __init__(self,name,price):
+        super().__init__(name,price)
+        
+lego = Car("Kotse ni Daniel", "$1000")
+lego.describeToy()
+
+LA#13
+class Animal():
+    def __init__(self,name,type):
+         self.name = name
+         self.type = type
+    
+    def describeFish(self):
+        print(f'{self.name},{self.type}')
+        
+class Fish(Animal):         
+    def __init__(self,name,type, can_swim):
+        super().__init__(name,type)
+        self.can_swim = can_swim
+    
+Daniel = Fish("Maya", "Fish", True or False)
+print(Daniel.can_swim) 
+    
