@@ -1,0 +1,14 @@
+class  Hero:
+    def __init__(self,name,hp,atk_dmg):
+        self.name = name
+        self.hp = hp
+        self.atk_dmg = atk_dmg
+    def basic_attack(self, enemy_object):
+        enemy_object.hp = enemy_object.hp - self.atk_dmg
+chang_e = Hero("Chang_e",1500,50)
+nana = Hero("Nana",1000,75)
+chang_e.basic_attack(nana)
+chang_e.basic_attack(nana)
+nana.basic_attack(chang_e)
+print(chang_e.name, chang_e.hp, chang_e.atk_dmg)
+print(nana.name, nana.hp, nana.atk_dmg)
