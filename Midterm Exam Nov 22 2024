@@ -16,7 +16,7 @@ class BitcoinWallet(Wallet):
         self.owner = owner
         self.__btc_balance = btc_balance
         
-    def transaction(self, amount, transac_type):
+    def Transaction(self, amount, transac_type):
         if transac_type == "buy":
             print(f"Performing Transaction: Buy {amount} BTC")
             self.__btc_balance += amount
@@ -38,7 +38,7 @@ class EthereumWallet(Wallet):
         self.owner = owner
         self.__eth_balance = eth_balance
         
-    def transaction(self, amount, transac_type):
+    def Transaction(self, amount, transac_type):
         if transac_type == "buy":
             print(f"Performing Transaction: Buy {amount} ETH")
             self.__eth_balance += amount
@@ -56,14 +56,14 @@ class EthereumWallet(Wallet):
         return self.__eth_balance
 
 daniel_wallet = BitcoinWallet("Daniel", 0.5)
-aron_wallet = EthereumWallet("Aron", 2)
+aron_wallet = EthereumWallet("Aron", 2.0)
 
 print(f"Bitcoin Wallet for {daniel_wallet.owner}")
 print(f"Initial Balance: {daniel_wallet.balance} BTC")
-daniel_wallet.transaction(0.2, "buy")
+daniel_wallet.Transaction(0.2, "buy")
 print(f"New Balance: {daniel_wallet.balance} BTC\n")
 
 print(f"Ethereum Wallet for {aron_wallet.owner}")
 print(f"Initial Balance: {aron_wallet.balance} ETH")
-aron_wallet.transaction(1, "sell")
-print(f"New Balance: {aron_wallet.balance} ETH") 
+aron_wallet.Transaction(1.0, "sell")
+print(f"New Balance: {aron_wallet.balance} ETH")
