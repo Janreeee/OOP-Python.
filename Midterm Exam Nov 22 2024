@@ -1,0 +1,69 @@
+from abc import ABC, abstractmethod
+
+class Wallet(ABC):
+    
+    @abstractmethod
+    def __init__(self, amount, transac_type):
+        pass
+    
+    @property
+    @abstractmethod
+    def balance(self):
+        pass   
+    
+class BitcoinWallet(Wallet):
+    def __init__(self, owner, btc_balance):
+        self.owner = owner
+        self.__btc_balance = btc_balance
+        
+    def transaction(self, amount, transac_type):
+        if transac_type == "buy":
+            print(f"Performing Transaction: Buy {amount} BTC")
+            self.__btc_balance += amount
+        elif transac_type == "sell":
+            if self.__btc_balance >= amount:
+                print(f"Performing Transaction: Sell {amount} BTC")
+                self.__btc_balance -= amount
+            else:
+                print(f"Transaction failed: {self.owner} has insufficient BTC balance!")
+        else:
+            print("Invalid Transaction Type!")
+            
+    @property
+    def balance(self):
+        return self.__btc_balance
+    
+class EthereumWallet(Wallet):
+    def __init__(self, owner, eth_balance):
+        self.owner = owner
+        self.__eth_balance = eth_balance
+        
+    def transaction(self, amount, transac_type):
+        if transac_type == "buy":
+            print(f"Performing Transaction: Buy {amount} ETH")
+            self.__eth_balance += amount
+        elif transac_type == "sell":
+            if self.__eth_balance >= amount:
+                print(f"Performing Transaction: Sell {amount} ETH")
+                self.__eth_balance -= amount
+            else:
+                print(f"Transaction Failed: {self.owner} has insufficient ETH balanc!")
+        else:
+            print("Invalid Transaction Type!")
+     
+    @property
+    def balance(self):
+        return self.__eth_balance
+
+daniel_wallet = BitcoinWallet("Daniel", 0.5)
+aron_wallet = EthereumWallet("Aron", 2)
+
+print(f"Bitcoin Wallet for {daniel_wallet.owner}")
+print(f"Initial Balance: {daniel_wallet.balance} BTC")
+daniel_wallet.transaction(0.2, "buy")
+print(f"New Balance: {daniel_wallet.balance} BTC\n")
+
+print(f"Ethereum Wallet for {aron_wallet.owner}")
+print(f"Initial Balance: {aron_wallet.balance} ETH")
+aron_wallet.transaction(1, "sell")
+print(f"New Balance: {aron_wallet.balance} ETH") 
