@@ -1,0 +1,23 @@
+LA#17
+class Player:
+    def __init__(self,name,health,atk_power):
+        self.name = name
+        self.health = health
+        self.atk_power = atk_power
+    def attack(self,enemy):
+        enemy.health = enemy.health - self.atk_power
+player1 = Player("Player 1", 500 ,50)
+player2 = Player("Player 2", 450,75)
+
+while True: 
+    if player1.health > 0 and player2.health > 0:
+        player1.attack(player2)
+        print(player1.name, player1.health, player1.atk_power)
+        print(player2.name, player2.health, player2.atk_power)
+    if player1.health <= 0:
+        print(f"{player1.name} has been defeated!")
+        break
+    player2.attack(player1)
+    if player1.health <= 0:
+        print(f"{player1.name} has been defeated!")
+        break
