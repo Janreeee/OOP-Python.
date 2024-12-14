@@ -1,17 +1,14 @@
 LA#18
-class FavoriteFood:
-    def __init__(self, name, ingredients):
-        self.name = name
-        self.ingredients = ingredients
-    
+class Sisig:
+    def __init__(self, meat, cream, spices):
+        self.meat = meat
+        self.cream = cream
+        self.spices = spices
     def __str__(self):
-        ingredients_str = ", ".(self.ingredients)
-        return f"{self.name} contains the following ingredients: {ingredients_str}."
-
-food1 = FavoriteFood("Pizza", ["dough", "cheese", "tomato sauce", "pepperoni"])
-food2 = FavoriteFood("Pasta", ["spaghetti", "tomato sauce", "basil", "parmesan cheese"])
-food3 = FavoriteFood("Tacos", ["tortilla", "ground beef", "cheese", "lettuce", "sour cream"])
-
-print(food1)
-print(food2)
-print(food3)
+        return f"Ang Sisig ko ay may {self.meat}, {self.cream}, {self.spices}"
+ssg = Sisig("Pork" ,"Mayonnaise" ,"Sili Red")
+ssg1 = Sisig("Chicken" ,"Mayonnaise" ,"Sili Green")
+ssg2 = Sisig("Pork" ,"No Mayonnaise" ,"Garlic Powder")
+print(ssg)
+print(ssg1)
+print(ssg2)
