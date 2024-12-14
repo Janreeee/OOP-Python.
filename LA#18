@@ -5,7 +5,7 @@ class FavoriteFood:
         self.ingredients = ingredients
     
     def __str__(self):
-        ingredients_str = ", ".join(self.ingredients)
+        ingredients_str = ", ".(self.ingredients)
         return f"{self.name} contains the following ingredients: {ingredients_str}."
 
 food1 = FavoriteFood("Pizza", ["dough", "cheese", "tomato sauce", "pepperoni"])
