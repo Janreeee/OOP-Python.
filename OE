@@ -1,0 +1,35 @@
+class SocialMediaAccount:
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+    
+    def login(self):
+        print(f"{self.username} logged in.")
+    
+    def post(self, content):
+        print(f"Posting: {content}")
+
+class InstagramAccount(SocialMediaAccount):
+    def __init__(self, username, password, number_of_followers):
+        super().__init__(username, password)
+        self.number_of_followers = number_of_followers
+    
+    def share_story(self, story_content):
+        print(f"Sharing story: {story_content}")
+
+class TwitterAccount(SocialMediaAccount):
+    def __init__(self, username, password, number_of_tweets):
+        super().__init__(username, password)
+        self.number_of_tweets = number_of_tweets
+    
+    def tweet(self, tweet_content):
+        print(f"Tweeting: {tweet_content}")
+
+# Example usage:
+insta = InstagramAccount("user1", "pass1", 1500)
+insta.login()
+insta.share_story("Hello Instagram!")
+
+twitter = TwitterAccount("user2", "pass2", 500)
+twitter.login()
+twitter.tweet("Hello Twitter!")
