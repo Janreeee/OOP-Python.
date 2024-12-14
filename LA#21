@@ -1,26 +1,19 @@
 LA#21
-class FavoriteFood:
-    def __init__(self, name, ingredients):
-        self.name = name
-        self.__ingredients = ingredients 
-
+class Sisig:
+    def __init__(self, meat, cream, spices):
+        self.meat = meat
+        self.__cream = cream
+        self.spices = spices
     def __str__(self):
-        ingredients_str = ", ".(self.__ingredients)
-        return f"{self.name} contains the following ingredients: {ingredients_str}."
-
-    def get_ingredients(self):
-        return self.__ingredients 
-
-    def set_ingredients(self, new_ingredients):
-        self.__ingredients = new_ingredients 
-food1 = FavoriteFood("Pizza", ["dough", "cheese", "tomato sauce", "pepperoni"])
-food2 = FavoriteFood("Pasta", ["spaghetti", "tomato sauce", "basil", "parmesan cheese"])
-food3 = FavoriteFood("Tacos", ["tortilla", "ground beef", "cheese", "lettuce", "sour cream"])
-
-
-print(food1)
-print(food2)
-print(food3)
-print(food1.get_ingredients())
-food1.set_ingredients(["dough", "cheese", "tomato sauce", "mushrooms", "olives"])
-print(food1)
+        return f"Ang Sisig ko ay may {self.meat}, {self.cream}, {self.spices}"
+    def may_cream_ba(self):
+        return self.__cream
+    def set_private(self, new_value):
+        self.__cream = new_value
+ssg = Sisig("Pork" ,"Mayonnaise" ,"Sili Red")
+ssg1 = Sisig("Chicken" ,"Mayonnaise" ,"Sili Green")
+ssg2 = Sisig("Pork" ,"No Mayonnaise" ,"Garlic Powder")
+ssg.set_private("Creamy")
+print(ssg.may_cream_ba())
+print(ssg1.may_cream_ba())
+print(ssg2.may_cream_ba())
