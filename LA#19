@@ -1,0 +1,20 @@
+LA#19
+class FavoriteFood:
+    def __init__(self, name, ingredients):
+        self.name = name
+        self.__ingredients = ingredients
+    
+    def __str__(self):
+        ingredients_str = ", ".(self.__ingredients)
+        return f"{self.name} contains the following ingredients: {ingredients_str}."
+    
+    def get_ingredients(self):
+        return self.__ingredients
+
+food1 = FavoriteFood("Pizza", ["dough", "cheese", "tomato sauce", "pepperoni"])
+food2 = FavoriteFood("Pasta", ["spaghetti", "tomato sauce", "basil", "parmesan cheese"])
+food3 = FavoriteFood("Tacos", ["tortilla", "ground beef", "cheese", "lettuce", "sour cream"])
+
+print(food1)
+print(food2)
+print(food3)
