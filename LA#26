@@ -1,0 +1,47 @@
+LA#26
+from abc import ABC, abstractmethod
+
+class NinjaTurtle(ABC):
+    @abstractmethod
+    def int(self):
+        pass
+
+class Leonardo(NinjaTurtle):
+    def __init__(self, name, __alias):
+        self.name = name
+        self.__alias = __alias
+    def int(self):
+        return f"{self.__alias}"
+
+class Michelangelo(NinjaTurtle):
+    def __init__(self, name, __alias):
+        self.name = name
+        self.__alias = __alias
+    def int(self):
+        return f"{self.__alias}"
+
+class Donatello(NinjaTurtle):
+    def __init__(self, name, __alias):
+        self.name = name
+        self.__alias = __alias
+    def int(self):
+        return f"{self.__alias}"
+
+class Raphael(NinjaTurtle):
+    def __init__(self, name, __alias):
+        self.name = name
+        self.__alias = __alias
+    def int(self):
+        return f"{self.__alias}"
+
+import turtles
+
+leonardo = turtles.Leonardo("Leonardo", "Ninja Turtle 1")
+michelangelo = turtles.Michelangelo("Michelangelo", "Ninja Turtle 2")
+donatello = turtles.Donatello("Donatello", "Ninja Turtle 3")
+raphael = turtles.Raphael("Raphael", "Ninja Turtle 4")
+
+print(leonardo.int())
+print(michelangelo.int())
+print(donatello.int())
+print(raphael.int())
