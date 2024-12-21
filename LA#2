@@ -1,8 +1,0 @@
-LA#2
-class hero():
-    def __init__(self,name,role):
-        self.name = name
-        self.role = role
-
-hero = hero("Fanny", "Assassin")
-print(hero.name,hero.role)
