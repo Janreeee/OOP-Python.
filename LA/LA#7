@@ -1,0 +1,12 @@
+LA#7
+class Car:
+    def __init__(self,brand,color):
+        self.brand = brand
+        self.color = color
+
+vehicle = Car("BMW", "White")
+cars = Car("Honda", "Black")
+print(vehicle.brand, vehicle.color)
+vehicle.color = "Red"
+print(vehicle.brand, vehicle.color)
+print(cars.brand, cars.color)
