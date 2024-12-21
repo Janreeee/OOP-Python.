@@ -1,0 +1,10 @@
+LA#8
+class Book:
+    def __init__(self ,title ,author):
+        self.title = title
+        self.author = author
+    
+Title = Book("English", "James")
+Title1 = Book("Science", "Daniel")
+print(f'{Title.title}, {Title.author}')
+del Title1.author
