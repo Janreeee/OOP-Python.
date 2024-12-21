@@ -1,0 +1,107 @@
+class Phone:
+    def __init__(self, brand, model, price):
+      
+        self.brand = brand
+        self.model = model
+        self.price = price
+
+    def __str__(self):
+       
+        return f"{self.brand} {self.model} (${self.price})"
+
+class PhoneManager:
+    def __init__(self):
+       
+        self.phones = []
+
+    def add_phone(self, brand, model, price):
+        
+        phone = Phone(brand, model, price)
+        self.phones.append(phone)
+        print(f"Phone {phone} added successfully.")
+
+    def modify_phone(self, index, brand=None, model=None, price=None):
+        
+        if 0 <= index < len(self.phones):
+            phone = self.phones[index]
+            if brand:
+                phone.brand = brand
+            if model:
+                phone.model = model
+            if price:
+                phone.price = price
+            print(f"Phone at index {index} updated to: {phone}")
+        else:
+            print("Invalid index.")
+
+    def delete_phone_property(self, index, property_name):
+        
+        if 0 <= index < len(self.phones):
+            phone = self.phones[index]
+            if hasattr(phone, property_name):
+                delattr(phone, property_name)
+                print(f"Property '{property_name}' deleted from phone at index {index}.")
+            else:
+                print(f"Property '{property_name}' does not exist.")
+        else:
+            print("Invalid index.")
+
+    def delete_phone(self, index):
+       
+        if 0 <= index < len(self.phones):
+            removed_phone = self.phones.pop(index)
+            print(f"Phone {removed_phone} deleted successfully.")
+        else:
+            print("Invalid index.")
+
+    def list_phones(self):
+     
+        if not self.phones:
+            print("No phones in the list.")
+        else:
+            print("List of Phones:")
+            for i, phone in enumerate(self.phones):
+                print(f"{i}. {phone}")
+
+def main_menu():
+    manager = PhoneManager()
+
+    while True:
+        print("\nPhone Management System")
+        print("1. Add Phone")
+        print("2. Modify Phone")
+        print("3. Delete Phone Property")
+        print("4. Delete Phone")
+        print("5. List Phones")
+        print("6. Exit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            brand = input("Enter phone brand: ")
+            model = input("Enter phone model: ")
+            price = input("Enter phone price: ")
+            manager.add_phone(brand, model, price)
+        elif choice == "2":
+            index = int(input("Enter index of phone to modify: "))
+            brand = input("Enter new brand (leave blank to keep current): ") or None
+            model = input("Enter new model (leave blank to keep current): ") or None
+            price = input("Enter new price (leave blank to keep current): ") or None
+            manager.modify_phone(index, brand, model, price)
+        elif choice == "3":
+            index = int(input("Enter index of phone: "))
+            property_name = input("Enter property to delete (brand/model/price): ")
+            manager.delete_phone_property(index, property_name)
+        elif choice == "4":
+            index = int(input("Enter index of phone to delete: "))
+            manager.delete_phone(index)
+        elif choice == "5":
+            manager.list_phones()
+        elif choice == "6":
+            print("Exiting Phone Management System.")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main_menu()
