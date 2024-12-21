@@ -1,0 +1,14 @@
+LA#18
+class Sisig:
+    def __init__(self, meat, cream, spices):
+        self.meat = meat
+        self.cream = cream
+        self.spices = spices
+    def __str__(self):
+        return f"Ang Sisig ko ay may {self.meat}, {self.cream}, {self.spices}"
+ssg = Sisig("Pork" ,"Mayonnaise" ,"Sili Red")
+ssg1 = Sisig("Chicken" ,"Mayonnaise" ,"Sili Green")
+ssg2 = Sisig("Pork" ,"No Mayonnaise" ,"Garlic Powder")
+print(ssg)
+print(ssg1)
+print(ssg2)
